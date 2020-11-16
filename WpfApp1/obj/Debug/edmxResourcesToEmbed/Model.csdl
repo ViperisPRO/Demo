@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="vkonstantinovModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Sklad">
+    <Key>
+      <PropertyRef Name="Num" />
+    </Key>
+    <Property Name="Num" Type="Int32" Nullable="false" />
+    <Property Name="Adress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Vid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Rast" Type="Int32" />
+    <NavigationProperty Name="StroyMaterial" Relationship="Self.FK_StoryMaterial_Sklad" FromRole="Sklad" ToRole="StroyMaterial" />
+  </EntityType>
+  <EntityType Name="StroyMaterial">
+    <Key>
+      <PropertyRef Name="Num" />
+    </Key>
+    <Property Name="Num" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Edlzm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ost" Type="Int32" Nullable="false" />
+    <Property Name="SkladNum" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Sklad" Relationship="Self.FK_StoryMaterial_Sklad" FromRole="StroyMaterial" ToRole="Sklad" />
+  </EntityType>
+  <Association Name="FK_StoryMaterial_Sklad">
+    <End Role="Sklad" Type="Self.Sklad" Multiplicity="1" />
+    <End Role="StroyMaterial" Type="Self.StroyMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sklad">
+        <PropertyRef Name="Num" />
+      </Principal>
+      <Dependent Role="StroyMaterial">
+        <PropertyRef Name="SkladNum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="vkonstantinovEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Sklad" EntityType="Self.Sklad" />
+    <EntitySet Name="StroyMaterial" EntityType="Self.StroyMaterial" />
+    <AssociationSet Name="FK_StoryMaterial_Sklad" Association="Self.FK_StoryMaterial_Sklad">
+      <End Role="Sklad" EntitySet="Sklad" />
+      <End Role="StroyMaterial" EntitySet="StroyMaterial" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
