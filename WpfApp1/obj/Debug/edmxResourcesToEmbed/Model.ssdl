@@ -4,22 +4,22 @@
     <Key>
       <PropertyRef Name="Num" />
     </Key>
-    <Property Name="Num" Type="int" Nullable="false" />
-    <Property Name="Adress" Type="nvarchar" MaxLength="255" />
-    <Property Name="Vid" Type="nvarchar" MaxLength="255" />
-    <Property Name="Rast" Type="int" />
+    <Property Name="Num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adress" Type="nchar" MaxLength="255" />
+    <Property Name="vid" Type="nchar" MaxLength="255" />
+    <Property Name="rast" Type="int" />
   </EntityType>
   <EntityType Name="StroyMaterial">
     <Key>
       <PropertyRef Name="Num" />
     </Key>
-    <Property Name="Num" Type="int" Nullable="false" />
-    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Edlzm" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Edlzm" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Ost" Type="int" Nullable="false" />
     <Property Name="SkladNum" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="FK_StoryMaterial_Sklad">
+  <Association Name="FK_StroyMaterial_Sklad">
     <End Role="Sklad" Type="Self.Sklad" Multiplicity="1" />
     <End Role="StroyMaterial" Type="Self.StroyMaterial" Multiplicity="*" />
     <ReferentialConstraint>
@@ -34,7 +34,7 @@
   <EntityContainer Name="Хранилище vkonstantinovModelContainer">
     <EntitySet Name="Sklad" EntityType="Self.Sklad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StroyMaterial" EntityType="Self.StroyMaterial" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_StoryMaterial_Sklad" Association="Self.FK_StoryMaterial_Sklad">
+    <AssociationSet Name="FK_StroyMaterial_Sklad" Association="Self.FK_StroyMaterial_Sklad">
       <End Role="Sklad" EntitySet="Sklad" />
       <End Role="StroyMaterial" EntitySet="StroyMaterial" />
     </AssociationSet>

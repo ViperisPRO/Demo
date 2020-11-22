@@ -38,7 +38,6 @@ D:\DemoKonst\WpfApp1\obj\Debug\WpfApp1.pdb
 G:\DemoKonst\WpfApp1\obj\Debug\WpfApp1.csprojAssemblyReference.cache
 G:\DemoKonst\WpfApp1\obj\Debug\ApplicationPage.g.cs
 G:\DemoKonst\WpfApp1\obj\Debug\MainWindow.g.cs
-G:\DemoKonst\WpfApp1\obj\Debug\Window1.g.cs
 G:\DemoKonst\WpfApp1\obj\Debug\App.g.cs
 G:\DemoKonst\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
 G:\DemoKonst\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
@@ -47,7 +46,6 @@ G:\DemoKonst\WpfApp1\obj\Debug\WpfApp1.pdb
 G:\DemoKonst\WpfApp1\obj\Debug\App.baml
 G:\DemoKonst\WpfApp1\obj\Debug\ApplicationPage.baml
 G:\DemoKonst\WpfApp1\obj\Debug\MainWindow.baml
-G:\DemoKonst\WpfApp1\obj\Debug\Window1.baml
 G:\DemoKonst\WpfApp1\obj\Debug\WpfApp1.g.resources
 D:\DemoKonst\WpfApp1\obj\Debug\ApplicationPage.g.cs
 D:\DemoKonst\WpfApp1\obj\Debug\MainPage.g.cs
@@ -55,8 +53,6 @@ D:\DemoKonst\WpfApp1\obj\Debug\ApplicationPage.baml
 D:\DemoKonst\WpfApp1\obj\Debug\MainPage.baml
 D:\DemoKonst\WpfApp1\obj\Debug\SettingPage.g.cs
 D:\DemoKonst\WpfApp1\obj\Debug\SettingPage.baml
-G:\DemoKonst\WpfApp1\obj\Debug\MainPage.g.cs
-G:\DemoKonst\WpfApp1\obj\Debug\SettingPage.g.cs
 G:\DemoKonst\WpfApp1\obj\Debug\WpfApp1_Content.g.cs
 G:\DemoKonst\WpfApp1\bin\Debug\WpfApp1.exe.config
 G:\DemoKonst\WpfApp1\bin\Debug\WpfApp1.exe
@@ -66,8 +62,6 @@ G:\DemoKonst\WpfApp1\bin\Debug\EntityFramework.SqlServer.dll
 G:\DemoKonst\WpfApp1\bin\Debug\EntityFramework.xml
 G:\DemoKonst\WpfApp1\bin\Debug\EntityFramework.SqlServer.xml
 G:\DemoKonst\WpfApp1\bin\Debug\ru\EntityFramework.resources.dll
-G:\DemoKonst\WpfApp1\obj\Debug\MainPage.baml
-G:\DemoKonst\WpfApp1\obj\Debug\SettingPage.baml
 G:\DemoKonst\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
 G:\DemoKonst\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
 G:\DemoKonst\WpfApp1\obj\Debug\WpfApp1.csproj.CopyComplete
@@ -78,3 +72,14 @@ D:\DemoKonst\WpfApp1\bin\Debug\EntityFramework.SqlServer.xml
 D:\DemoKonst\WpfApp1\bin\Debug\ru\EntityFramework.resources.dll
 D:\DemoKonst\WpfApp1\obj\Debug\WpfApp1_Content.g.cs
 D:\DemoKonst\WpfApp1\obj\Debug\WpfApp1.csproj.CopyComplete
+G:\DemoKonst\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
+G:\DemoKonst\WpfApp1\obj\Debug\AddStroyMaterial.g.cs
+G:\DemoKonst\WpfApp1\obj\Debug\AddStroyMaterial.baml
+G:\DemoKonst\WpfApp1\obj\Debug\Pages\MainPage.g.cs
+G:\DemoKonst\WpfApp1\obj\Debug\Pages\SettingPage.g.cs
+G:\DemoKonst\WpfApp1\obj\Debug\Pages\MainPage.baml
+G:\DemoKonst\WpfApp1\obj\Debug\Pages\SettingPage.baml
+G:\DemoKonst\WpfApp1\obj\Debug\Window1.g.cs
+G:\DemoKonst\WpfApp1\obj\Debug\Window1.baml
+G:\DemoKonst\WpfApp1\obj\Debug\Pages\StroyMaterialPage.g.cs
+G:\DemoKonst\WpfApp1\obj\Debug\Pages\StroyMaterialPage.baml

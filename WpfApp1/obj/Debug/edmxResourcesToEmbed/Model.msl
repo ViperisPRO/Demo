@@ -5,9 +5,9 @@
       <EntityTypeMapping TypeName="vkonstantinovModel.Sklad">
         <MappingFragment StoreEntitySet="Sklad">
           <ScalarProperty Name="Num" ColumnName="Num" />
-          <ScalarProperty Name="Adress" ColumnName="Adress" />
-          <ScalarProperty Name="Vid" ColumnName="Vid" />
-          <ScalarProperty Name="Rast" ColumnName="Rast" />
+          <ScalarProperty Name="adress" ColumnName="adress" />
+          <ScalarProperty Name="vid" ColumnName="vid" />
+          <ScalarProperty Name="rast" ColumnName="rast" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

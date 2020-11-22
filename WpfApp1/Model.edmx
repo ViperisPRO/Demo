@@ -4,27 +4,27 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище vkonstantinovModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище vkonstantinovModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Sklad">
           <Key>
             <PropertyRef Name="Num" />
           </Key>
-          <Property Name="Num" Type="int" Nullable="false" />
-          <Property Name="Adress" Type="nvarchar" MaxLength="255" />
-          <Property Name="Vid" Type="nvarchar" MaxLength="255" />
-          <Property Name="Rast" Type="int" />
+          <Property Name="Num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adress" Type="nchar" MaxLength="255" />
+          <Property Name="vid" Type="nchar" MaxLength="255" />
+          <Property Name="rast" Type="int" />
         </EntityType>
         <EntityType Name="StroyMaterial">
           <Key>
             <PropertyRef Name="Num" />
           </Key>
-          <Property Name="Num" Type="int" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Edlzm" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Edlzm" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Ost" Type="int" Nullable="false" />
           <Property Name="SkladNum" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_StoryMaterial_Sklad">
+        <Association Name="FK_StroyMaterial_Sklad">
           <End Role="Sklad" Type="Self.Sklad" Multiplicity="1" />
           <End Role="StroyMaterial" Type="Self.StroyMaterial" Multiplicity="*" />
           <ReferentialConstraint>
@@ -39,13 +39,12 @@
         <EntityContainer Name="Хранилище vkonstantinovModelContainer">
           <EntitySet Name="Sklad" EntityType="Self.Sklad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StroyMaterial" EntityType="Self.StroyMaterial" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_StoryMaterial_Sklad" Association="Self.FK_StoryMaterial_Sklad">
+          <AssociationSet Name="FK_StroyMaterial_Sklad" Association="Self.FK_StroyMaterial_Sklad">
             <End Role="Sklad" EntitySet="Sklad" />
             <End Role="StroyMaterial" EntitySet="StroyMaterial" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="vkonstantinovModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -53,24 +52,24 @@
           <Key>
             <PropertyRef Name="Num" />
           </Key>
-          <Property Name="Num" Type="Int32" Nullable="false" />
-          <Property Name="Adress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Vid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Rast" Type="Int32" />
-          <NavigationProperty Name="StroyMaterial" Relationship="Self.FK_StoryMaterial_Sklad" FromRole="Sklad" ToRole="StroyMaterial" />
+          <Property Name="Num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adress" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="vid" Type="String" MaxLength="255" FixedLength="true" Unicode="true" />
+          <Property Name="rast" Type="Int32" />
+          <NavigationProperty Name="StroyMaterial" Relationship="Self.FK_StroyMaterial_Sklad" FromRole="Sklad" ToRole="StroyMaterial" />
         </EntityType>
         <EntityType Name="StroyMaterial">
           <Key>
             <PropertyRef Name="Num" />
           </Key>
-          <Property Name="Num" Type="Int32" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Edlzm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Edlzm" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Ost" Type="Int32" Nullable="false" />
           <Property Name="SkladNum" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Sklad" Relationship="Self.FK_StoryMaterial_Sklad" FromRole="StroyMaterial" ToRole="Sklad" />
+          <NavigationProperty Name="Sklad" Relationship="Self.FK_StroyMaterial_Sklad" FromRole="StroyMaterial" ToRole="Sklad" />
         </EntityType>
-        <Association Name="FK_StoryMaterial_Sklad">
+        <Association Name="FK_StroyMaterial_Sklad">
           <End Role="Sklad" Type="Self.Sklad" Multiplicity="1" />
           <End Role="StroyMaterial" Type="Self.StroyMaterial" Multiplicity="*" />
           <ReferentialConstraint>
@@ -85,7 +84,7 @@
         <EntityContainer Name="vkonstantinovEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Sklad" EntityType="Self.Sklad" />
           <EntitySet Name="StroyMaterial" EntityType="Self.StroyMaterial" />
-          <AssociationSet Name="FK_StoryMaterial_Sklad" Association="Self.FK_StoryMaterial_Sklad">
+          <AssociationSet Name="FK_StroyMaterial_Sklad" Association="Self.FK_StroyMaterial_Sklad">
             <End Role="Sklad" EntitySet="Sklad" />
             <End Role="StroyMaterial" EntitySet="StroyMaterial" />
           </AssociationSet>
@@ -100,9 +99,9 @@
             <EntityTypeMapping TypeName="vkonstantinovModel.Sklad">
               <MappingFragment StoreEntitySet="Sklad">
                 <ScalarProperty Name="Num" ColumnName="Num" />
-                <ScalarProperty Name="Adress" ColumnName="Adress" />
-                <ScalarProperty Name="Vid" ColumnName="Vid" />
-                <ScalarProperty Name="Rast" ColumnName="Rast" />
+                <ScalarProperty Name="adress" ColumnName="adress" />
+                <ScalarProperty Name="vid" ColumnName="vid" />
+                <ScalarProperty Name="rast" ColumnName="rast" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

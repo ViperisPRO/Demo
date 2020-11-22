@@ -22,8 +22,38 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+
+        public MainWindow()
+        {
+
+            InitializeComponent();
+            var db = new vkonstantinovEntities();
+
+            var sm = Core.DB.StroyMaterial.ToList();
+            this.DataContext = this;
+
+            SettingPage.Click += SettingPage_Click;
+            Back.Click += Back_Click;
+            Go.Click += Go_Click;
+            
+            
+           _myElements = sm;
+
+            MainFrame.Navigate(new MainPage());
+
+        }
+
+        private List<StroyMaterial> _myElements = new List<StroyMaterial>();
+
+        public List<StroyMaterial> MyElements
+        {
+            get { return _myElements; }
+            set { _myElements = value; }
+        }
+
         private float _myNumberValue = 100;
-        public float MyNumber {
+        public float MyNumber
+        {
             get
             {
                 return _myNumberValue;
@@ -35,33 +65,31 @@ namespace WpfApp1
             }
         }
 
-
-        private List<StroyMaterial> _myElements;
-        public List<StroyMaterial> MyElements
+        private void Go_Click(object sender, RoutedEventArgs e)
         {
-            get { return _myElements; }
-            set { _myElements = value; }
+            if (MainFrame.CanGoForward)
+            {
+                MainFrame.GoForward();
+            }
         }
 
-        public MainWindow()
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
-
-            InitializeComponent();
-            _myElements.Add("Word");
-            _myElements.Add("Excel");
-            _myElements.Add("Powerpoint");
-            _myElements.Add("Visio");
-
-            this.DataContext = this;
-            MainFrame.Navigate(new MainPage());
-
-            var db = new Sklad();
-            var sm = db.StroyMaterial.ToList();
-            _myElements = sm;
+            if (MainFrame.CanGoBack) 
+            {
+                MainFrame.GoBack();
+            }
         }
-        private void SettingPageButton_Click(object sender, RoutedEventArgs e)
+
+
+        private void SettingPage_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new SettingPage());
+        }
+
+        private void SettingPageButton(object sender, RoutedEventArgs e)
+        {
+           MainFrame.Navigate(new SettingPage());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -77,31 +105,50 @@ namespace WpfApp1
             w.ShowDialog();
         }
 
-        private void MySlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainFrame.CanGoBack)
-                MainFrame.GoBack();
-        }
-
-        private void ForwardButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainFrame.CanGoForward)
-                MainFrame.GoForward();
-        }
-
         private void MainListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MainFrame.Navigate(
-                new ApplicationPage(
-                    (sender as ListView).SelectedItem as string
-             ));
+            var item = ((sender as ListView).SelectedItem as String);
+            var appPage = new ApplicationPage(item);
+            
+            MainFrame.Navigate(appPage);
+                //new ApplicationPage(
+                   // (sender as ListView).SelectedItem as string));
         }
-        
 
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new AddStroyMaterial(new StroyMaterial()) );
+        }
+
+        private void MainListView_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var item = ((sender as ListView).SelectedItem as StroyMaterial);
+            Core.DB.StroyMaterial.Remove(item);
+            Core.DB.SaveChanges();
+            MessageBox.Show(item.Title + " deleted");
+        }
+
+        private void StroyMaterialTableButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new StroyMaterialPage(MyElements));
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            //var item = SMDataGrid.SelectedItem as StroyMaterial;
+            //Core.DB.StroyMaterial.Remove(item);
+            //Core.DB.SaveChanges();
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            //var item = SMDataGrid.SelectedItem as StroyMaterial;
+            //this.NavigationService.Navigate(new AddStroyMaterial(item));
+        }
+
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
     }
 }

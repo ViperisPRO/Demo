@@ -16,15 +16,17 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Логика взаимодействия для ApplicationPage.xaml
+    /// Логика взаимодействия для StroyMaterialPage.xaml
     /// </summary>
-    public partial class ApplicationPage : Page
+    public partial class StroyMaterialPage : Page
     {
-        public ApplicationPage(string name)
+        public List<StroyMaterial> MyStroyMaterials { get; set; }
+
+        public StroyMaterialPage(List<StroyMaterial> materials)
         {
             InitializeComponent();
-            
-            ApplicationLabel.Content = name;
+            MyStroyMaterials = materials;
+            this.DataContext = this;
         }
     }
 }

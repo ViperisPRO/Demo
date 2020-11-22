@@ -21,9 +21,9 @@ namespace WpfApp1
         }
     
         public int Num { get; set; }
-        public string Adress { get; set; }
-        public string Vid { get; set; }
-        public Nullable<int> Rast { get; set; }
+        public string adress { get; set; }
+        public string vid { get; set; }
+        public Nullable<int> rast { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StroyMaterial> StroyMaterial { get; set; }

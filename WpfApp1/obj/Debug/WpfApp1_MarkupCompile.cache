@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\DemoKonst\WpfApp1\obj\Debug\
+G:\DemoKonst\WpfApp1\obj\Debug\
 WpfApp1
 none
 false
 DEBUG;TRACE
-D:\DemoKonst\WpfApp1\App.xaml
-5-2097009467
+G:\DemoKonst\WpfApp1\App.xaml
+7-278360047
 2-1881755278
-15-638069859
-18-689550437
-ApplicationPage.xaml;MainPage.xaml;MainWindow.xaml;SettingPage.xaml;Window1.xaml;
+181150401551
+18-579117323
+AddStroyMaterial.xaml;ApplicationPage.xaml;Pages\MainPage.xaml;MainWindow.xaml;Pages\SettingPage.xaml;Pages\StroyMaterialPage.xaml;Window1.xaml;
 
 True
 
