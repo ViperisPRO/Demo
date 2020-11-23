@@ -27,14 +27,14 @@ namespace WpfApp1
         {
 
             InitializeComponent();
-            var db = new vkonstantinovEntities();
+            var db = new vkonstantinovEntities(); // Подключение к БД
 
             var sm = Core.DB.StroyMaterial.ToList();
             this.DataContext = this;
 
-            SettingPage.Click += SettingPage_Click;
+            SettingPage.Click += SettingPage_Click; // Путь создание кнопки
             Back.Click += Back_Click;
-            Go.Click += Go_Click;
+            Go.Click += Go_Click;   
             
             
            _myElements = sm;
